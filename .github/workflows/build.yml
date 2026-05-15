@@ -21,10 +21,6 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install esp32:esp32
 
-      - name: Install Libraries
-        run: |
-          arduino-cli lib install TFT_eSPI
-
       - name: Compile Sketch
         run: |
           mkdir -p build
@@ -33,7 +29,7 @@ jobs:
             --output-dir build \
             dashboard_rc.ino
 
-      - name: Upload BIN Files
+      - name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
           name: firmware
